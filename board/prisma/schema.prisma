@@ -1,0 +1,29 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model Board {
+  id    Int     @id @default(autoincrement())
+  title String
+  posts Post[]  @relation("BoardToPost")
+}
+
+model Post {
+  id      Int    @id @default(autoincrement())
+  title   String
+  content String
+  boardId Int
+  board   Board  @relation("BoardToPost", fields: [boardId], references: [id])
+}
+
+model Recycle {
+  id          Int    @id @default(autoincrement())
+  character   String
+  recycle     String
+  createdAt   DateTime @default(now())
+}

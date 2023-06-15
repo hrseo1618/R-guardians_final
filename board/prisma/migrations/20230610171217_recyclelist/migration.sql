@@ -1,0 +1,7 @@
+-- CreateTable
+CREATE TABLE "Recycle" (
+    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "character" TEXT NOT NULL,
+    "recycle" TEXT NOT NULL,
+    "createdAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
